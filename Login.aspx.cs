@@ -39,6 +39,8 @@ namespace DB_demo4
                 if (sdr.HasRows)
                 {
                     //this.label.Text = "Succeed";
+                    sdr.Read();
+                    Session["uid"] = sdr["U_id"];
                     Session["username"] = username;
                     Session["password"] = password;
                     Response.Redirect("main.aspx");

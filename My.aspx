@@ -67,12 +67,23 @@
             <br />
             <div class="card">
                 <div class="card-body">
+                     
                     <div class="form-group">
+                        <label>选择反馈类型:</label>
+                        <select id="ddlFeedbackType" class="form-control" runat="server">
+                            <option value="功能请求">功能请求</option>
+                            <option value="缺陷报告">缺陷报告</option>
+                            <option value="用户界面反馈">用户界面反馈</option>
+                            <option value="性能问题">性能问题</option>
+                            <option value="安全问题">安全问题</option>
+                            <option value="文档和帮助反馈">文档和帮助反馈</option>
+                            <option value="用户体验反馈">用户体验反馈</option>
+                        </select>
                         <label>提交反馈给管理员:</label>
                         <asp:TextBox ID="txtFeedback" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
                     </div>
                     <asp:Button ID="btnSubmitFeedback" runat="server" Text="提交" CssClass="btn btn-primary" OnClick="btnSubmitFeedback_Click" Width="100px"/>
-
+                    <asp:Label ID="lblMessage1" runat="server" CssClass="text-danger mt-3"></asp:Label>
                     
                 </div>
                 </div>

@@ -61,7 +61,7 @@
     </div>
   </div>
 </footer>
-
+    <asp:Label ID="yourLabel" runat="server"></asp:Label>
 
 </body>
 

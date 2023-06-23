@@ -50,7 +50,7 @@
                 <asp:Button ID="btnSearch" runat="server" Text="搜索" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
                 <div style="float: right;">
                     <asp:Button ID="showRoute" runat="server" Text="显示行程" CssClass="btn btn-primary" OnClick="showRoute_Click"/>
-                    <asp:Button ID="createRoutePath" runat="server" Text="生成路线" CssClass="btn btn-primary"/>
+                    <asp:Button ID="createRoutePath" runat="server" Text="生成路线" OnClick="showPath_Click" CssClass="btn btn-primary"/>
                 </div>
             </div>
 
@@ -76,7 +76,7 @@
             <asp:GridView ID="gvResults" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="False" DataKeyNames="SS_id">
                 <Columns>
                     <asp:BoundField DataField="SS_id" HeaderText="景点编号" Visible="false"/>
-                    <asp:BoundField DataField="SSname" HeaderText="名称" />
+                    <asp:HyperLinkField DataTextField="SSname" DataNavigateUrlFields="SS_id" DataNavigateUrlFormatString="Details.aspx?SS_id={0}" HeaderText="景点名称" HeaderStyle-Width="200px" SortExpression="SSname" />
                     <asp:BoundField DataField="SScity" HeaderText="位置" />
                     <asp:BoundField DataField="SSopen_start_time" HeaderText="开放时间" />
                     <asp:BoundField DataField="SSopen_end_time" HeaderText="关闭时间" />
@@ -102,7 +102,16 @@
             <%-- 悬浮窗 显示某一景点具体信息 --%>
             <div id="popupContainer" class="popupContainer" runat="server" Visible="false">
                 <div class="popupContent">
-                    <h3>详细信息</h3>
+                    <div class="popupHeader">
+
+                        <h3 class="popupTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            详细信息</h3>
+                        <div class="closeButtonContainer">
+                            <asp:Button ID="btnClosePopup" runat="server" Text="退出" OnClick="btnClosePopup_Click" CssClass="btn btn-sm btn-primary rounded" />
+                        </div>
+                    </div>
                     <asp:DetailsView ID="detailsView" runat="server" CssClass="detailsView" AutoGenerateRows="False" DataKeyNames="SS_id" DataSourceID="SqlDataSource1">
                         <Fields>
                             <asp:BoundField DataField="SS_id" HeaderText="SS_id" HeaderStyle-Width="200px" ReadOnly="True" SortExpression="SS_id" Visible="false"/>
@@ -120,12 +129,18 @@
                             <asp:BoundField DataField="IsInfo" HeaderText="详情" SortExpression="IsInfo" />
                         </Fields>
                     </asp:DetailsView>
+
+                    <div class="popupFooter">
+                        <asp:Button ID="btnReserve" runat="server" Text="预约" CssClass="btn btn-sm btn-primary rounded" OnClick="btnReserve_Click" />
+                        <asp:Button ID="btnRate" runat="server" Text="评价" CssClass="btn btn-sm btn-primary rounded" OnClick="btnRate_Click" />
+                    </div>
+
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:mydbConnectionString %>" SelectCommand="SELECT ScenicSpot.SS_id, ScenicSpot.SSname, ScenicSpot.SScity, ScenicSpot.SSlocate_longitude, ScenicSpot.SSlocate_latitude, ScenicSpot.SSprice, ScenicSpot.SSrate, CASE WHEN ScenicSpot.SSphone IS NULL THEN '暂无联系方式' ELSE ScenicSpot.SSphone END AS SSphone, ScenicSpot.SScap, ScenicSpot.SScap_res, CASE WHEN ScenicSpot.SSopen_start_time IS NULL THEN '00:00:00' ELSE CONVERT (VARCHAR(8) , ScenicSpot.SSopen_start_time , 108) END AS SSopen_start_time, CASE WHEN ScenicSpot.SSopen_end_time IS NULL THEN '24:00:00' ELSE CONVERT (VARCHAR(8) , ScenicSpot.SSopen_end_time , 108) END AS SSopen_end_time, InfoSpot.IsInfo, ScenicSpot.SSprice * ScenicSpot.SSrate AS Price FROM ScenicSpot INNER JOIN InfoSpot ON ScenicSpot.SS_id = InfoSpot.SS_id WHERE (ScenicSpot.SS_id = @SS_id)">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="hidSSId" Name="SS_id" PropertyName="Value" Type="String" />
                         </SelectParameters>
                     </asp:SqlDataSource>
-                    <asp:Button ID="btnClosePopup" runat="server" Text="关闭" OnClick="btnClosePopup_Click" />
+
                 </div>
             </div>
 
@@ -141,7 +156,18 @@
                     align-items: center;
                     justify-content: center;
                 }
-
+               .popupHeader {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+               .popupTitle {
+                    margin: 0;
+                    text-align: center;
+                }
+                .closeButtonContainer {
+                    margin-left: auto;
+                }
                 .popupContent {
                     background-color: #fff;
                     padding: 20px;
@@ -152,6 +178,21 @@
                 .detailsView {
                     margin-bottom: 20px;
                 }
+                .exit-button {
+                  border: none;
+                  background-color: transparent;
+                  font-size: 1.2rem;
+                  padding: 0;
+                  margin: 0;
+                  line-height: 1;
+                  cursor: pointer;
+                  color: #333;
+                }
+
+                .exit-button:focus {
+                  outline: none;
+                }
+
             </style>
 
         </div>

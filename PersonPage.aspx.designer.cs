@@ -114,6 +114,15 @@ namespace DB_demo4
         protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
+        /// ddlFeedbackType 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlFeedbackType;
+
+        /// <summary>
         /// txtFeedback 控件。
         /// </summary>
         /// <remarks>
@@ -130,5 +139,14 @@ namespace DB_demo4
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmitFeedback;
+
+        /// <summary>
+        /// lblMessage1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage1;
     }
 }

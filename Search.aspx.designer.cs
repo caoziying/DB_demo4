@@ -105,6 +105,15 @@ namespace DB_demo4
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl popupContainer;
 
         /// <summary>
+        /// btnClosePopup 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClosePopup;
+
+        /// <summary>
         /// detailsView 控件。
         /// </summary>
         /// <remarks>
@@ -114,6 +123,24 @@ namespace DB_demo4
         protected global::System.Web.UI.WebControls.DetailsView detailsView;
 
         /// <summary>
+        /// btnReserve 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnReserve;
+
+        /// <summary>
+        /// btnRate 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRate;
+
+        /// <summary>
         /// SqlDataSource1 控件。
         /// </summary>
         /// <remarks>
@@ -121,14 +148,5 @@ namespace DB_demo4
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-
-        /// <summary>
-        /// btnClosePopup 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClosePopup;
     }
 }

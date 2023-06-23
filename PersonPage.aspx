@@ -61,24 +61,26 @@
         </div>
     </nav>
 
+
       <%-- 我的行程 --%>
     <div id="myTrips" class="container content">
-        <asp:GridView ID="gvMyTrips" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="False">
+        <asp:GridView ID="gvMyTrips" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="False" DataKeyNames="Id">
             <Columns>
                 <asp:TemplateField HeaderText="序号">
                     <ItemTemplate>
                         <%# Container.DataItemIndex + 1 %>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="SSname" HeaderText="名称" />
-                <asp:BoundField DataField="SScity" HeaderText="位置" />
-                <asp:BoundField DataField="SSopen_start_time" HeaderText="开放时间" />
-                <asp:BoundField DataField="SSopen_end_time" HeaderText="关闭时间" />
-                <asp:BoundField DataField="SSphone" HeaderText="联系方式" />
-                <asp:BoundField DataField="SScap_res" HeaderText="剩余票数" />
+                <%--<asp:BoundField DataField="Id" HeaderText="编号" />--%>
+                <asp:BoundField DataField="Name" HeaderText="名称" />
+                <asp:BoundField DataField="Type" HeaderText="类型" />
+                <asp:BoundField DataField="OpenStartTime" HeaderText="开放时间" />
+                <asp:BoundField DataField="OpenEndTime" HeaderText="关闭时间" />
+                <asp:BoundField DataField="Phone" HeaderText="联系方式" />
+                <asp:BoundField DataField="Cap_res" HeaderText="剩余票数" />
                 <asp:TemplateField HeaderText="删除行程" HeaderStyle-Width="100px" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>
-                            <asp:Button ID="btnDeleteFromItinerary" runat="server" Text="Delete" CssClass="btn btn-sm btn-secondary" OnClick="btnDeleteFromItinerary_Click" CommandArgument='<%# Eval("SS_id") %>'/>
+                            <asp:Button ID="btnDeleteFromItinerary" runat="server" Text="Delete" CssClass="btn btn-sm btn-secondary" OnClick="btnDeleteFromItinerary_Click" CommandArgument='<%# Eval("Id") + "," + Eval("Type") %>'/>
                         </ItemTemplate>
                     </asp:TemplateField>
             </Columns>
@@ -126,12 +128,24 @@
             <br />
             <div class="card">
                 <div class="card-body">
+                     <div class="form-group">
+                        <label>选择反馈类型:</label>
+                        <select id="ddlFeedbackType" class="form-control"  runat="server">
+                            <option value="功能请求">功能请求</option>
+                            <option value="缺陷报告">缺陷报告</option>
+                            <option value="用户界面反馈">用户界面反馈</option>
+                            <option value="性能问题">性能问题</option>
+                            <option value="安全问题">安全问题</option>
+                            <option value="文档和帮助反馈">文档和帮助反馈</option>
+                            <option value="用户体验反馈">用户体验反馈</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label>提交反馈给管理员:</label>
                         <asp:TextBox ID="txtFeedback" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
                     </div>
                     <asp:Button ID="btnSubmitFeedback" runat="server" Text="提交" CssClass="btn btn-primary" OnClick="btnSubmitFeedback_Click" Width="100px"/>
-
+                     <asp:Label ID="lblMessage1" runat="server" CssClass="text-danger mt-3"></asp:Label>
                     
                 </div>
                 </div>

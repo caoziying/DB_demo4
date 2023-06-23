@@ -79,7 +79,37 @@ namespace DB_demo4
 
         protected void btnSubmitFeedback_Click(object sender, EventArgs e)
         {
+            string content = this.txtFeedback.Text;
+            string type = this.ddlFeedbackType.Value;
+            string strcon = ConfigurationManager.ConnectionStrings["mydbConnectionString"].ConnectionString; ;//从web.config文件中读取连接字符串
+            SqlConnection con = new SqlConnection(strcon);//定义连接对象
+            SqlCommand cmd = new SqlCommand();//创建命令对象
+            cmd.Connection = con;//设置命令对象的数据库连接属性
 
+            //this.label.Text = this.password.ToString();
+            cmd.CommandText = "INSERT INTO Feedback VALUES(@U_id,@Ftime,@Ftype,@Fcontent)";
+            cmd.Parameters.AddWithValue("@U_id", Session["uid"]);
+            cmd.Parameters.AddWithValue("@Ftime", DateTime.Now.ToString());
+            cmd.Parameters.AddWithValue("@Ftype", type);
+            cmd.Parameters.AddWithValue("@Fcontent", content);
+
+            con.Open();//打开数据库连接
+                       //Response.Write("连接数据库查询成功");
+            try
+            {
+                cmd.ExecuteReader(); // Execute SQL command and get the query result
+                                     // Insertion successful
+                                     // Delay for two seconds
+                lblMessage1.Text = "已提交";
+            }
+            catch (SqlException ex)
+            {
+                lblMessage1.Text = "出现异常，提交失败。";
+            }
+            finally
+            {
+                con.Close(); // Close the database connection
+            }
         }
     }
 }

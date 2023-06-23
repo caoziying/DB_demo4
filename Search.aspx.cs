@@ -246,6 +246,17 @@ namespace DB_demo4
             Response.Redirect("PersonPage.aspx#myTrips");
         }
 
+        protected void showPath_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("path.aspx");
+        }
+        protected void btnReserve_Click(object sender, EventArgs e)
+        {
 
+        }
+        protected void btnRate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
