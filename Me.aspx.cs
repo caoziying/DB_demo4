@@ -9,20 +9,20 @@ using System.Web.UI.WebControls;
 
 namespace DB_demo4
 {
-    public partial class My : System.Web.UI.Page
+    public partial class Me : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["username"] == null)
+            if (Session["root"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
-            this.lblUsername.Text = Session["username"].ToString();
+            this.lblUsername.Text = Session["root"].ToString();
         }
         protected void btnChangePassword_Click(object sender, EventArgs e)
         {
             string oldPass = txtOldPassword.Text;
-            if (oldPass.Equals(Session["password"]) == false)
+            if (oldPass.Equals(Session["pass"]) == false)
             {
                 lblMessage.Text = "旧密码错误";
                 return;
@@ -30,17 +30,17 @@ namespace DB_demo4
             // 处理修改密码的逻辑
             string newPassword = txtNewPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
-            string username = Session["username"].ToString();
+            string username = Session["root"].ToString();
             if (newPassword == confirmPassword)
             {
-                // 更新密码的代码...
+                // 更新密码的代码... ConfigurationManager.ConnectionStrings["mydbConnectionString"].ConnectionString;
                 string strcon = ConfigurationManager.ConnectionStrings["mydbConnectionString"].ConnectionString; ;//从web.config文件中读取连接字符串
                 SqlConnection con = new SqlConnection(strcon);//定义连接对象
                 SqlCommand cmd = new SqlCommand();//创建命令对象
                 cmd.Connection = con;//设置命令对象的数据库连接属性
 
                 //this.label.Text = this.password.ToString();
-                cmd.CommandText = "UPDATE Users SET Upass=@password WHERE Uname=@username";
+                cmd.CommandText = "UPDATE Manager SET Mpass=@password WHERE Mname=@username";
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@password", newPassword);
 
@@ -52,7 +52,7 @@ namespace DB_demo4
                                          // Insertion successful
                                          // Delay for two seconds
                     lblMessage.Text = "密码已成功修改。";
-                    Session["password"] = newPassword;
+                    Session["pass"] = newPassword;
                 }
                 catch (SqlException ex)
                 {
@@ -74,41 +74,6 @@ namespace DB_demo4
                 //Server.Transfer("PersonPage.aspx#myProfile", false);
                 lblMessage.Text = "两次密码不匹配。";
                 //
-            }
-        }
-
-        protected void btnSubmitFeedback_Click(object sender, EventArgs e)
-        {
-            string content = this.txtFeedback.Text;
-            string type = this.ddlFeedbackType.Value;
-            string strcon = ConfigurationManager.ConnectionStrings["mydbConnectionString"].ConnectionString; ;//从web.config文件中读取连接字符串
-            SqlConnection con = new SqlConnection(strcon);//定义连接对象
-            SqlCommand cmd = new SqlCommand();//创建命令对象
-            cmd.Connection = con;//设置命令对象的数据库连接属性
-
-            //this.label.Text = this.password.ToString();
-            cmd.CommandText = "INSERT INTO Feedback VALUES(@U_id,@Ftime,@Ftype,@Fcontent)";
-            cmd.Parameters.AddWithValue("@U_id", Session["uid"]);
-            cmd.Parameters.AddWithValue("@Ftime", DateTime.Now.ToString());
-            cmd.Parameters.AddWithValue("@Ftype", type);
-            cmd.Parameters.AddWithValue("@Fcontent", content);
-
-            con.Open();//打开数据库连接
-                       //Response.Write("连接数据库查询成功");
-            try
-            {
-                cmd.ExecuteReader(); // Execute SQL command and get the query result
-                                     // Insertion successful
-                                     // Delay for two seconds
-                lblMessage1.Text = "已提交";
-            }
-            catch (SqlException ex)
-            {
-                lblMessage1.Text = "出现异常，提交失败。";
-            }
-            finally
-            {
-                con.Close(); // Close the database connection
             }
         }
     }

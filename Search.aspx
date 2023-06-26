@@ -21,16 +21,17 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="main.aspx">返回首页</a>
+                <a class="nav-link" href="main.aspx">首页</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#" >查询</a>
+                <a class="nav-link active" href="#" >景点信息查询</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Order.aspx">预约</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="PersonPage.aspx">我</a>
+                <a class="nav-link" href="PersonPage.aspx">我的</a>
+            </li>
+             <li class="nav-item">
+             <a class="nav-link" href="Login.aspx">注销</a>
+        </li>
             </ul>
           </div>
         </div>
@@ -130,10 +131,10 @@
                         </Fields>
                     </asp:DetailsView>
 
-                    <div class="popupFooter">
+<%--                    <div class="popupFooter">
                         <asp:Button ID="btnReserve" runat="server" Text="预约" CssClass="btn btn-sm btn-primary rounded" OnClick="btnReserve_Click" />
                         <asp:Button ID="btnRate" runat="server" Text="评价" CssClass="btn btn-sm btn-primary rounded" OnClick="btnRate_Click" />
-                    </div>
+                    </div>--%>
 
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:mydbConnectionString %>" SelectCommand="SELECT ScenicSpot.SS_id, ScenicSpot.SSname, ScenicSpot.SScity, ScenicSpot.SSlocate_longitude, ScenicSpot.SSlocate_latitude, ScenicSpot.SSprice, ScenicSpot.SSrate, CASE WHEN ScenicSpot.SSphone IS NULL THEN '暂无联系方式' ELSE ScenicSpot.SSphone END AS SSphone, ScenicSpot.SScap, ScenicSpot.SScap_res, CASE WHEN ScenicSpot.SSopen_start_time IS NULL THEN '00:00:00' ELSE CONVERT (VARCHAR(8) , ScenicSpot.SSopen_start_time , 108) END AS SSopen_start_time, CASE WHEN ScenicSpot.SSopen_end_time IS NULL THEN '24:00:00' ELSE CONVERT (VARCHAR(8) , ScenicSpot.SSopen_end_time , 108) END AS SSopen_end_time, InfoSpot.IsInfo, ScenicSpot.SSprice * ScenicSpot.SSrate AS Price FROM ScenicSpot INNER JOIN InfoSpot ON ScenicSpot.SS_id = InfoSpot.SS_id WHERE (ScenicSpot.SS_id = @SS_id)">
                         <SelectParameters>

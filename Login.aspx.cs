@@ -61,8 +61,11 @@ namespace DB_demo4
                 SqlDataReader sdr = cmd.ExecuteReader();//执行SQL命令，并获取查询结果
                 if (sdr.HasRows)
                 {
+                    sdr.Read();
                     Session["root"] = username;
                     Session["pass"] = password;
+                    Session["root_id"] = sdr["M_id"].ToString();
+                    Response.Redirect("Manager.aspx");
                     this.label.Text = "Succeed";
                 }
                 else

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="My.aspx.cs" Inherits="DB_demo4.My" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Me.aspx.cs" Inherits="DB_demo4.Me" %>
 
 <!DOCTYPE html>
 
@@ -12,8 +12,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <form id="form1" runat="server">
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">旅游信息管理系统</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -23,18 +22,35 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="main.aspx">首页</a>
+            <a class="nav-link" href="Manager.aspx">首页</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Search.aspx">景点信息查询</a>
+            <a class="nav-link" href="UserManagement.aspx" >用户管理</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">我的</a>
+            <a class="nav-link" href="SpotManagement.aspx" >景点管理</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="MerchantManagement.aspx" >商户管理</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="NoticeManagement.aspx" >公告栏</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="FeedBacks.aspx" >用户反馈</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">我</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="Login.aspx">注销</a>
+        </li>
         </ul>
       </div>
     </div>
   </nav>
+    <form id="form1" runat="server">
+
       <%-- 我的个人信息 --%>
     <div id="myProfile" class="container content">
 
@@ -61,40 +77,16 @@
 
                     <asp:Button ID="Button1" runat="server" Text="修改密码" CssClass="btn btn-primary" OnClick="btnChangePassword_Click" />
                     <asp:Label ID="lblMessage" runat="server" CssClass="text-danger mt-3"></asp:Label>
+                 </div>
             </div>
         </div>
-            <br />
-            <br />
-            <div class="card">
-                <div class="card-body">
-                     
-                    <div class="form-group">
-                        <label>选择反馈类型:</label>
-                        <select id="ddlFeedbackType" class="form-control" runat="server">
-                            <option value="功能请求">功能请求</option>
-                            <option value="缺陷报告">缺陷报告</option>
-                            <option value="用户界面反馈">用户界面反馈</option>
-                            <option value="性能问题">性能问题</option>
-                            <option value="安全问题">安全问题</option>
-                            <option value="文档和帮助反馈">文档和帮助反馈</option>
-                            <option value="用户体验反馈">用户体验反馈</option>
-                        </select>
-                        <label>提交反馈给管理员:</label>
-                        <asp:TextBox ID="txtFeedback" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
-                    </div>
-                    <asp:Button ID="btnSubmitFeedback" runat="server" Text="提交" CssClass="btn btn-primary" OnClick="btnSubmitFeedback_Click" Width="100px"/>
-                    <asp:Label ID="lblMessage1" runat="server" CssClass="text-danger mt-3"></asp:Label>
-                    
-                </div>
-                </div>
-            </div>
-        </div>
+    </div>
     </form>
-    <script>
-        // 在文档加载完成后进行事件绑定
-        document.addEventListener('DOMContentLoaded', function () {
-            // 获取旧密码输入框
-            var txtOldPassword = document.getElementById('<%= txtOldPassword.ClientID %>');
+     <script>
+         // 在文档加载完成后进行事件绑定
+         document.addEventListener('DOMContentLoaded', function () {
+             // 获取旧密码输入框
+             var txtOldPassword = document.getElementById('<%= txtOldPassword.ClientID %>');
 
             // 添加输入事件监听器
             txtOldPassword.addEventListener('input', function () {
@@ -104,7 +96,7 @@
                 // 检查旧密码是否正确
                 // 此处应使用Ajax请求到服务器验证旧密码的逻辑
 
-                var sessionPassword = '<%= Session["password"] %>';
+                var sessionPassword = '<%= Session["pass"] %>';
 
                 // 示例：当旧密码为'123456'时，显示新密码输入框，否则隐藏新密码输入框
                 var divNewPassword = document.getElementById('<%= divNewPassword.ClientID %>');
@@ -118,7 +110,7 @@
                 }
             });
         });
-    </script>
+     </script>
  
 
 

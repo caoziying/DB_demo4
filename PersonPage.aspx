@@ -24,16 +24,17 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="main.aspx">返回首页</a>
+            <a class="nav-link" href="main.aspx">首页</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Search.aspx" >查询</a>
+            <a class="nav-link" href="Search.aspx">景点信息查询</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Order.aspx">预约</a>
+            <a class="nav-link active" href="#">我的</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">我</a>
+             <li class="nav-item">
+             <a class="nav-link" href="Login.aspx">注销</a>
+        </li>
         </ul>
       </div>
     </div>
@@ -49,9 +50,6 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#myTrips">我的行程</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#myAppointments">我的预约</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#myProfile">我的个人信息</a>

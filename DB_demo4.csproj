@@ -72,6 +72,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -97,16 +98,21 @@
   <ItemGroup>
     <Content Include="Amap.html" />
     <Content Include="Details.aspx" />
+    <Content Include="FeedBacks.aspx" />
     <Content Include="img\0001.jpg" />
     <Content Include="main.aspx" />
-    <Content Include="My.aspx" />
-    <Content Include="Order.aspx" />
+    <Content Include="Manager.aspx" />
+    <Content Include="Me.aspx" />
+    <Content Include="MerchantManagement.aspx" />
+    <Content Include="NoticeManagement.aspx" />
     <Content Include="path.aspx" />
     <Content Include="PersonPage.aspx" />
     <Content Include="position.aspx" />
-    <Content Include="position.html" />
     <Content Include="Register.aspx" />
     <Content Include="Search.aspx" />
+    <Content Include="SpotManagement.aspx" />
+    <Content Include="transportation.aspx" />
+    <Content Include="UserManagement.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
   </ItemGroup>
@@ -118,6 +124,13 @@
     <Compile Include="Details.aspx.designer.cs">
       <DependentUpon>Details.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FeedBacks.aspx.cs">
+      <DependentUpon>FeedBacks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FeedBacks.aspx.designer.cs">
+      <DependentUpon>FeedBacks.aspx</DependentUpon>
+    </Compile>
     <Compile Include="main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -125,19 +138,33 @@
     <Compile Include="main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
     </Compile>
-    <Compile Include="My.aspx.cs">
-      <DependentUpon>My.aspx</DependentUpon>
+    <Compile Include="Manager.aspx.cs">
+      <DependentUpon>Manager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="My.aspx.designer.cs">
-      <DependentUpon>My.aspx</DependentUpon>
+    <Compile Include="Manager.aspx.designer.cs">
+      <DependentUpon>Manager.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Order.aspx.cs">
-      <DependentUpon>Order.aspx</DependentUpon>
+    <Compile Include="Me.aspx.cs">
+      <DependentUpon>Me.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Order.aspx.designer.cs">
-      <DependentUpon>Order.aspx</DependentUpon>
+    <Compile Include="Me.aspx.designer.cs">
+      <DependentUpon>Me.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MerchantManagement.aspx.cs">
+      <DependentUpon>MerchantManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MerchantManagement.aspx.designer.cs">
+      <DependentUpon>MerchantManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NoticeManagement.aspx.cs">
+      <DependentUpon>NoticeManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NoticeManagement.aspx.designer.cs">
+      <DependentUpon>NoticeManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="path.aspx.cs">
       <DependentUpon>path.aspx</DependentUpon>
@@ -182,7 +209,28 @@
     <Compile Include="Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SpotManagement.aspx.cs">
+      <DependentUpon>SpotManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SpotManagement.aspx.designer.cs">
+      <DependentUpon>SpotManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TempFormData.cs" />
+    <Compile Include="transportation.aspx.cs">
+      <DependentUpon>transportation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="transportation.aspx.designer.cs">
+      <DependentUpon>transportation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement.aspx.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagement.aspx.designer.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

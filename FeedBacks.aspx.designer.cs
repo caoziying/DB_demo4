@@ -11,7 +11,7 @@ namespace DB_demo4
 {
 
 
-    public partial class My
+    public partial class FeedBacks
     {
 
         /// <summary>
@@ -24,120 +24,102 @@ namespace DB_demo4
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lblUsername 控件。
+        /// GridView1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUsername;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// divOldPassword 控件。
+        /// SqlDataSource1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOldPassword;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// txtOldPassword 控件。
+        /// num0 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOldPassword;
+        protected global::System.Web.UI.WebControls.Label num0;
 
         /// <summary>
-        /// divNewPassword 控件。
+        /// num1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNewPassword;
+        protected global::System.Web.UI.WebControls.Label num1;
 
         /// <summary>
-        /// txtNewPassword 控件。
+        /// num2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewPassword;
+        protected global::System.Web.UI.WebControls.Label num2;
 
         /// <summary>
-        /// divConfirmPassword 控件。
+        /// num3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divConfirmPassword;
+        protected global::System.Web.UI.WebControls.Label num3;
 
         /// <summary>
-        /// txtConfirmPassword 控件。
+        /// num4 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+        protected global::System.Web.UI.WebControls.Label num4;
 
         /// <summary>
-        /// Button1 控件。
+        /// num5 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Label num5;
 
         /// <summary>
-        /// lblMessage 控件。
+        /// num6 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::System.Web.UI.WebControls.Label num6;
 
         /// <summary>
-        /// ddlFeedbackType 控件。
+        /// num7 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlFeedbackType;
+        protected global::System.Web.UI.WebControls.Label num7;
 
         /// <summary>
-        /// txtFeedback 控件。
+        /// num8 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFeedback;
-
-        /// <summary>
-        /// btnSubmitFeedback 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmitFeedback;
-
-        /// <summary>
-        /// lblMessage1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage1;
+        protected global::System.Web.UI.WebControls.Label num8;
     }
 }

@@ -43,6 +43,7 @@
                 border-bottom-right-radius: 4px;
                 overflow: hidden;
             }
+        .btn-primary {}
     </style>
     <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
     <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
@@ -58,7 +59,7 @@
    <form id="form1" runat="server"> 
         <div style="text-align: center;">
             <br /><br /><br />
-            <asp:Button ID="ret" Text="返回" runat="server" CssClass="btn btn-primary" OnClick="rets"/>
+            <asp:Button ID="ret" Text="返回" runat="server" OnClick="rets" CssClass="btn btn-primary" Height="35px" Width="70px" Font-Size="Medium"/>
         </div>
    </form>
     <script type="text/javascript">
@@ -94,7 +95,7 @@
         var arrayString = JSON.stringify(lngLatList);
 
         // 在弹窗中显示二维数组内容
-        alert(arrayString);
+        //alert(arrayString);
             
         //});
 
@@ -153,7 +154,7 @@
         var arrayString = JSON.stringify(waypoint);
 
         // 在弹窗中显示二维数组内容
-        alert(arrayString);
+        //alert(arrayString);
         //var flattenedList = [].concat.apply([], lngLatList);
         // 根据起终点经纬度规划驾车导航路线  ...lngLatList  new AMap.LngLat(118.72640, 30.98427) new AMap.LngLat(117.71497, 31.28427), new AMap.LngLat(118.72640, 30.98427),
         //var qq = [{ keyword: "合肥工业大学宣城校区", city: "宣城" }, { keyword: "宣城中学", city: "宣城" }];
@@ -184,6 +185,5 @@
         //});
         
     </script>
-     
 </body>
 </html>

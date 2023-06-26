@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="main.aspx.cs" Inherits="DB_demo4.main" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Manager.aspx.cs" Inherits="DB_demo4.manager" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,13 +24,25 @@
             <a class="nav-link active" href="#">首页</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Search.aspx">景点信息查询</a>
+            <a class="nav-link" href="UserManagement.aspx" >用户管理</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="PersonPage.aspx">我的</a>
+            <a class="nav-link" href="SpotManagement.aspx" >景点管理</a>
           </li>
-         <li class="nav-item">
-            <a class="nav-link" href="Login.aspx">注销</a>
+          <li class="nav-item">
+            <a class="nav-link" href="MerchantManagement.aspx" >商户管理</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="NoticeManagement.aspx" >公告栏</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="FeedBacks.aspx" >用户反馈</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Me.aspx">我</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="Login.aspx">注销</a>
         </li>
         </ul>
       </div>
@@ -46,27 +59,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- 公示栏 -->
-<footer class="bg-light py-5" style="background-color:blanchedalmond">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 mx-auto text-center">
-        <h3 class="mb-4" style="font-family:STSong;font-weight:800">公示栏</h3>
-        <p><asp:Label ID="Ncontent" runat="server"></asp:Label></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12 text-end">
-        <h7 class="mb-4" style="position: absolute; bottom: 40; right: 10; font-family: STSong; font-weight: 800;">
-          <asp:Label ID="Mname" runat="server"></asp:Label>
-        </h7>
-      </div>
-    </div>
-  </div>
-</footer>
-    <asp:Label ID="yourLabel" runat="server"></asp:Label>
 
 </body>
 
 </html>
-

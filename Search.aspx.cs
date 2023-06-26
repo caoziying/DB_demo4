@@ -63,11 +63,7 @@ namespace DB_demo4
             try
             {
                 // 查询语句获取
-                cmd.CommandText = "SELECT SS_id, SSname, SScity, SSlocate_longitude, SSlocate_latitude, SSprice, SSrate, CASE WHEN SSphone IS NULL THEN '暂无联系方式' " +
-                    "ELSE SSphone END AS SSphone, SScap, SScap_res, CASE WHEN SSopen_start_time IS NULL THEN '00:00:00' " +
-                    "ELSE CONVERT(VARCHAR(8), SSopen_start_time, 108) END AS SSopen_start_time, CASE WHEN SSopen_end_time IS NULL THEN '24:00:00' " +
-                    "ELSE CONVERT(VARCHAR(8), SSopen_end_time, 108) END AS SSopen_end_time FROM ScenicSpot" +
-                    " WHERE SSname LIKE '%' + @keyword + '%' OR SScity LIKE '%' + @keyword + '%';";
+                cmd.CommandText = "SELECT * FROM view_spot_mes WHERE SSname LIKE '%' + @keyword + '%' OR SScity LIKE '%' + @keyword + '%';";
 
                 cmd.Parameters.AddWithValue("@keyword", keyword);
 
@@ -108,11 +104,7 @@ namespace DB_demo4
             {
                 // 查询语句获取
                 // 108 为 SQL SERVER中时间格式的样式代码
-                cmd.CommandText = "SELECT SS_id, SSname, SScity, SSlocate_longitude, SSlocate_latitude, SSprice, SSrate, CASE WHEN SSphone IS NULL THEN '暂无联系方式' " +
-                    "ELSE SSphone END AS SSphone, SScap, SScap_res, CASE WHEN SSopen_start_time IS NULL THEN '00:00:00' " +
-                    "ELSE CONVERT(VARCHAR(8), SSopen_start_time, 108) END AS SSopen_start_time, CASE WHEN SSopen_end_time IS NULL THEN '24:00:00' " +
-                    "ELSE CONVERT(VARCHAR(8), SSopen_end_time, 108) END AS SSopen_end_time FROM ScenicSpot" +
-                    " WHERE (SSname LIKE '%' + @keyword + '%' OR SScity LIKE '%' + @keyword + '%') AND (SScity LIKE '%' + @city + '%');";
+                cmd.CommandText = "SELECT * FROM view_spot_mes WHERE (SSname LIKE '%' + @keyword + '%' OR SScity LIKE '%' + @keyword + '%') AND (SScity LIKE '%' + @city + '%');";
                 cmd.Parameters.AddWithValue("@keyword", keyword);
                 cmd.Parameters.AddWithValue("@city", ddlLocation);
 
@@ -248,15 +240,9 @@ namespace DB_demo4
 
         protected void showPath_Click(object sender, EventArgs e)
         {
+            PersonPage p1 = new PersonPage();
+            p1.get_sort();
             Response.Redirect("path.aspx");
-        }
-        protected void btnReserve_Click(object sender, EventArgs e)
-        {
-
-        }
-        protected void btnRate_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

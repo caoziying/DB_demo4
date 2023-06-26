@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Details.aspx.cs" Inherits="DB_demo4.Details" EnableEventValidation="false" %>
 
+<%@ Register assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI.DataVisualization.Charting" tagprefix="asp" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,12 +45,83 @@
                         <asp:Label ID="lblPhone" runat="server" Text="" Font-Size="15px"></asp:Label>
                     </p>
                     <p><asp:Label ID="lblInfo" runat="server" Text="" Font-Size="15px" ForeColor="#3399ff" Font-Bold="true"></asp:Label></p>
+
+
+                    
+
+
+                    <p>&nbsp;</p>
                 </div>
 
             </div>
 
             <div class="row mt-4">
                 <div class="col-md-12">
+                    <p>
+                        <asp:Label ID="Label8" runat="server" Text="游玩信息统计：" Font-Size="20px" Font-Bold="true"></asp:Label></p>
+                    <p>
+
+                        <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource3" Width="420px" BackColor="204, 255, 153" BorderlineColor="Black">
+                            <Series>
+                                <asp:Series Name="Series1" XValueMember="Smonth" YValueMembers="Snum">
+                                </asp:Series>
+                            </Series>
+                            <ChartAreas>
+                                <asp:ChartArea Name="ChartArea1">
+                                    <AxisX Title="月份"></AxisX>
+                                    <AxisY Title="客流量"></AxisY>
+                                </asp:ChartArea>
+                            </ChartAreas>
+                        </asp:Chart>
+                         <asp:Chart ID="Chart2" runat="server" DataSourceID="SqlDataSource3" Width="420px" BackColor="204, 255, 153" BorderlineColor="Black">
+                            <Series>
+                                <asp:Series Name="Series1" XValueMember="Smonth" YValueMembers="Snum" ChartType="Line">
+                                </asp:Series>
+                            </Series>
+                            <ChartAreas>
+                                <asp:ChartArea Name="ChartArea1">
+                                    <AxisX Title="月份"></AxisX>
+                                    <AxisY Title="客流量"></AxisY>
+                                </asp:ChartArea>
+                            </ChartAreas>
+
+                        </asp:Chart>
+                        <asp:Chart ID="Chart3" runat="server" DataSourceID="SqlDataSource6" BackColor="204, 255, 153" BorderlineColor="Black" Width="420px">
+                            <Series>
+                                <asp:Series Name="Series1" XValueMember="Syear" YValueMembers="total_visitors"></asp:Series>
+                            </Series>
+                            <ChartAreas>
+                                <asp:ChartArea Name="ChartArea1">
+                                    <AxisX Title="年份"></AxisX>
+                                    <AxisY Title="客流量"></AxisY>
+                                </asp:ChartArea>
+                            </ChartAreas>
+                        </asp:Chart>
+                        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:mydbConnectionString %>" SelectCommand="SELECT * FROM [view_total_visitors] WHERE ([SS_id] = @SS_id) ORDER BY [Syear]">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="spot" Name="SS_id" PropertyName="SelectedValue" Type="String" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource7" runat="server"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:mydbConnectionString %>" SelectCommand="SELECT * FROM [Statistic] WHERE (([SS_id] = @SS_id) AND ([Syear] = @Syear)) ORDER BY [Smonth]">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="spot" Name="SS_id" PropertyName="SelectedValue" Type="String" />
+                                <asp:ControlParameter ControlID="year" Name="Syear" PropertyName="SelectedValue" Type="Decimal" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                        <br />
+                        <asp:DropDownList ID="spot" runat="server" DataSourceID="SqlDataSource1" DataTextField="SSname" DataValueField="SS_id" OnSelectedIndexChanged="spot_SelectedIndexChanged" AutoPostBack="True">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:mydbConnectionString %>" SelectCommand="SELECT [SS_id], [SSname] FROM [ScenicSpot]"></asp:SqlDataSource>
+                        <asp:DropDownList ID="year" runat="server" DataSourceID="SqlDataSource2" DataTextField="Syear" DataValueField="Syear" OnSelectedIndexChanged="year_SelectedIndexChanged" AutoPostBack="True">
+                        </asp:DropDownList>
+
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:mydbConnectionString %>" SelectCommand="SELECT DISTINCT Syear FROM Statistic WHERE (SS_id = @SS_id)">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="spot" Name="SS_id" PropertyName="SelectedValue" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                    </p>
                     <p>
                         <asp:Label ID="Label5" runat="server" Text="周边商户：" Font-Size="20px" Font-Bold="true"></asp:Label>
                         <asp:Label ID="lblMerchant" runat="server" Text="" Font-Size="15px"></asp:Label>
@@ -77,9 +150,17 @@
 
                         </Columns>
                     </asp:GridView>
-
                 </div>
                 <div>
+                    <p>
+                        <asp:Label ID="Label6" runat="server" Text="周围交通：" Font-Size="20px" Font-Bold="true"></asp:Label>
+                    </p>
+                    <iframe frameborder="0" style="width: 100%; height: 600px" src="transportation.aspx"></iframe>
+                </div>
+                <div>
+                    <p>
+                        <asp:Label ID="Label7" runat="server" Text="驾车路线：" Font-Size="20px" Font-Bold="true"></asp:Label>
+                    </p>
                     <iframe frameborder="0" style="width: 100%; height: 600px" src="position.aspx"></iframe>
                 </div>
             </div>

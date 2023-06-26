@@ -21,47 +21,26 @@ namespace DB_demo4
             {
                 Response.Redirect("Login.aspx");
             }
-            if (Session["TempFormData"] != null)
-            {
-                List<string> list = (List<string>)Session["TempFormData"];
+
+            // 调试 行程 用   显示景点与商户编号
+            //if (Session["TempFormData"] != null)
+            //{
+            //    List<string> list = (List<string>)Session["TempFormData"];
                 
                 
 
-                // 使用 StringBuilder 构建 HTML 标签
-                StringBuilder htmlBuilder = new StringBuilder();
-                foreach (string item in list)
-                {
-                    htmlBuilder.Append(" ").Append(item).Append("|");
-                }
-                //if(Session["LongitudeList"]!=null)
-                //{
-                //    List<string> list1 = (List<string>)JsonConvert.DeserializeObject(Session["LongitudeList"]);
-                //    foreach (string item in list1)
-                //    {
-                //        htmlBuilder.Append(" ").Append(item).Append("|");
-                //    }
-                //}else
-                //{
-                //    htmlBuilder.Append(" ").Append("LongitudeList is null").Append("|");
-                //}
-                //if (Session["LatitudeList"] != null)
-                //{
-                //    List<string> list2 = (List<string>)Session["LatitudeList"];
-                //    foreach (string item in list2)
-                //    {
-                //        htmlBuilder.Append(" ").Append(item).Append("|");
-                //    }
-                //}
-                //else
-                //{
-                //    htmlBuilder.Append(" ").Append("LatitudeList is null").Append("|");
-                //}
-                // 将生成的 HTML 标签赋值给 Label 的 Text 属性
-                yourLabel.Text = htmlBuilder.ToString();
-            }
+            //    // 使用 StringBuilder 构建 HTML 标签
+            //    StringBuilder htmlBuilder = new StringBuilder();
+            //    foreach (string item in list)
+            //    {
+            //        htmlBuilder.Append(" ").Append(item).Append("|");
+            //    }
+
+            //    yourLabel.Text = htmlBuilder.ToString();
+            //}
 
             // 建立数据库连接
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=D:\\MYDB\\MYDB.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";//从web.config文件中读取连接字符串
+            string connectionString = ConfigurationManager.ConnectionStrings["mydbConnectionString"].ConnectionString;
             SqlConnection connection = new SqlConnection(connectionString);
 
             try
@@ -97,7 +76,7 @@ namespace DB_demo4
                 connection.Close();
             }
 
-
+            /*
             if (Session["TempFormData"] != null)
             {
                 List<string> tempFormDataList = (List<string>)Session["TempFormData"];
@@ -118,7 +97,7 @@ namespace DB_demo4
                 {
                     // 构建查询语句和参数
                     StringBuilder queryBuilder = new StringBuilder();
-                    queryBuilder.Append("SELECT SS_id, SSname, SScity, SSlocate_longitude, SSlocate_latitude, SSprice, SSrate, CASE WHEN SSphone IS NULL THEN '暂无联系方式' ELSE SSphone END AS SSphone, SScap, SScap_res, CASE WHEN SSopen_start_time IS NULL THEN '00:00:00' ELSE CONVERT(VARCHAR(8), SSopen_start_time, 108) END AS SSopen_start_time, CASE WHEN SSopen_end_time IS NULL THEN '24:00:00' ELSE CONVERT(VARCHAR(8), SSopen_end_time, 108) END AS SSopen_end_time FROM ScenicSpot WHERE SS_id IN (");
+                    queryBuilder.Append("SELECT * FROM view_spot_mes WHERE SS_id IN (");
 
                     // 添加参数化查询参数
                     List<SqlParameter> parameters = new List<SqlParameter>();
@@ -166,7 +145,7 @@ namespace DB_demo4
 
                     sdr.Close();
 
-                    /* 商户查询 */
+                    //* 商户查询 /
                     // 构建查询语句和参数
                     StringBuilder queryBuilder1 = new StringBuilder();
                     queryBuilder1.Append("SELECT Mc_id, Mcname, Mctype, Mclocate_longitude, Mclocate_latitude, CASE WHEN Mcphone IS NULL THEN '暂无联系方式' ELSE Mcphone END AS Mcphone, CASE WHEN Mopen_start_time IS NULL THEN '00:00:00' ELSE CONVERT(VARCHAR(8), Mopen_start_time, 108) END AS Mopen_start_time, CASE WHEN Mopen_end_time IS NULL THEN '24:00:00' ELSE CONVERT(VARCHAR(8), Mopen_end_time, 108) END AS Mopen_end_time FROM Merchant WHERE Mc_id IN (");
@@ -233,7 +212,7 @@ namespace DB_demo4
                         sortedTable.ImportRow(row);
                     }
 
-                    /*               取出经纬度              */
+                    //*               取出经纬度              /
                     // 创建一个匿名对象的集合来存储经度和纬度
                     //var coordinatesList = new List<object>();
                     //foreach (DataRow row in sortedTable.Rows)
@@ -259,6 +238,7 @@ namespace DB_demo4
                     connection.Close();
                 }
             }
+            */
         }
     }
 

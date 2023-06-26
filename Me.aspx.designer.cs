@@ -11,7 +11,7 @@ namespace DB_demo4
 {
 
 
-    public partial class Search
+    public partial class Me
     {
 
         /// <summary>
@@ -24,111 +24,84 @@ namespace DB_demo4
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txtKeyword 控件。
+        /// lblUsername 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtKeyword;
+        protected global::System.Web.UI.WebControls.Label lblUsername;
 
         /// <summary>
-        /// btnSearch 控件。
+        /// divOldPassword 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOldPassword;
 
         /// <summary>
-        /// showRoute 控件。
+        /// txtOldPassword 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button showRoute;
+        protected global::System.Web.UI.WebControls.TextBox txtOldPassword;
 
         /// <summary>
-        /// createRoutePath 控件。
+        /// divNewPassword 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button createRoutePath;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNewPassword;
 
         /// <summary>
-        /// ddlLocation 控件。
+        /// txtNewPassword 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLocation;
+        protected global::System.Web.UI.WebControls.TextBox txtNewPassword;
 
         /// <summary>
-        /// btnFilter 控件。
+        /// divConfirmPassword 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFilter;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divConfirmPassword;
 
         /// <summary>
-        /// gvResults 控件。
+        /// txtConfirmPassword 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvResults;
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
 
         /// <summary>
-        /// hidSSId 控件。
+        /// Button1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hidSSId;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// popupContainer 控件。
+        /// lblMessage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl popupContainer;
-
-        /// <summary>
-        /// btnClosePopup 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClosePopup;
-
-        /// <summary>
-        /// detailsView 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView detailsView;
-
-        /// <summary>
-        /// SqlDataSource1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }
